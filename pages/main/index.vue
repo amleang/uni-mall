@@ -5,18 +5,22 @@
 				<view :class="['swiper-tab-list',currentTab==index ? 'on' : '']" :id="tab.id" :data-current="index" @tap="swichNav">{{tab.name}}</view>
 			</block>
 		</scroll-view>
-		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
+		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" style="margin-top: 10px;">
 			<swiper-item>
-				<view class="swiper-item">A</view>
+				<view class="swiper-item">
+					<image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="widthFix"></image>
+				</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item">B</view>
+				<view class="swiper-item">
+					<image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="widthFix"></image>
+				</view>
 			</swiper-item>
 			<swiper-item>
 				<view class="swiper-item">C</view>
 			</swiper-item>
 		</swiper>
-		<swiper :current="currentTab" class="swiper-box" duration="300" @change="bindChange">
+		<!-- <swiper :current="currentTab" class="swiper-box" duration="300" @change="bindChange">
 			<block v-for="(tab,index1) in newsitems" :key="index1">
 				<swiper-item>
 					<scroll-view class="index-bd" scroll-y @scrolltolower="loadMore(index1)">
@@ -26,13 +30,26 @@
 					</scroll-view>
 				</swiper-item>
 			</block>
-		</swiper>
+		</swiper> -->
+
+		<view class="product-list">
+			<view v-for="(product,index) in productList" :key="index">
+				<product :image="product.image" :title="product.title" :originalPrice="product.originalPrice" :favourPrice="product.favourPrice"
+				    :tip="product.tip"></product>
+			</view>
+		</view>
 	</view>
 </template>
 <script>
+	import product from '../../components/product.vue';
+
 	export default {
+		components: {
+			product
+		},
 		data() {
 			return {
+				productList: [],
 				title: 'tabbar',
 				scrollLeft: 0,
 				isClickChange: false,
@@ -65,11 +82,10 @@
 					name: '本地',
 					id: 'bendi'
 				}],
-				newsitems: []
 			}
 		},
 		onLoad: function () {
-			this.newsitems = this.randomfn();
+			this.loadData();
 			uni.getSystemInfo({
 				success: function (res) {
 					uni.showToast({
@@ -85,35 +101,52 @@
 				this.currentTab = 0;
 		},
 		methods: {
-			bindChange: async function (e) {
-				let index = e.target.current;
-				if (this.isClickChange) {
-					this.currentTab = index;
-					this.isClickChange = false;
-					return;
-				}
-				let tabBar = await this.getWidth("tab-bar"),
-					tabBarScrollLeft = tabBar.scrollLeft;
+			loadData(action = 'add') {
+				const data = [{
+					image: 'https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product1.jpg',
+					title: 'Apple iPhone X 256GB 深空灰色 移动联通电信4G手机',
+					originalPrice: 9999,
+					favourPrice: 8888,
+					tip: '自营'
+				}, {
+					image: 'https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product2.jpg',
+					title: 'Apple iPad 平板电脑 2018年新款9.7英寸',
+					originalPrice: 3499,
+					favourPrice: 3399,
+					tip: '优惠'
+				}, {
+					image: 'https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product3.jpg',
+					title: 'Apple MacBook Pro 13.3英寸笔记本电脑（2017款Core i5处理器/8GB内存/256GB硬盘 MPXT2CH/A）',
+					originalPrice: 12999,
+					favourPrice: 10688,
+					tip: '秒杀'
+				}, {
+					image: 'https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product4.jpg',
+					title: 'Kindle Paperwhite电纸书阅读器 电子书墨水屏 6英寸wifi 黑色',
+					originalPrice: 999,
+					favourPrice: 958,
+					tip: '秒杀'
+				}, {
+					image: 'https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product5.jpg',
+					title: '微软（Microsoft）新Surface Pro 二合一平板电脑笔记本 12.3英寸（i5 8G内存 256G存储）',
+					originalPrice: 8888,
+					favourPrice: 8288,
+					tip: '优惠'
+				}, {
+					image: 'https://img-cdn-qiniu.dcloud.net.cn/uploads/example/product6.jpg',
+					title: 'Apple Watch Series 3智能手表（GPS款 42毫米 深空灰色铝金属表壳 黑色运动型表带 MQL12CH/A）',
+					originalPrice: 2899,
+					favourPrice: 2799,
+					tip: '自营'
+				}];
 
-				let width = 0;
-
-				for (let i = 0; i < index; i++) {
-					let result = await this.getWidth(this.tabs[i].id);
-					width += result.width;
+				if (action === 'refresh') {
+					this.productList = [];
 				}
 
-				let winWidth = uni.getSystemInfoSync().windowWidth,
-					nowElement = await this.getWidth(this.tabs[index].id),
-					nowWidth = nowElement.width;
-
-				if (width + nowWidth - tabBarScrollLeft > winWidth) {
-					this.scrollLeft = width + nowWidth - winWidth;
-				}
-				if (width < tabBarScrollLeft) {
-					this.scrollLeft = width;
-				}
-				this.isClickChange = false;
-				this.currentTab = index; //一旦访问data就会出问题
+				data.forEach(item => {
+					this.productList.push(item);
+				});
 			},
 			getWidth: function (id) { //得到元素的宽高
 				return new Promise((res, rej) => {
@@ -138,31 +171,8 @@
 					this.isClickChange = true;
 					this.currentTab = e.target.dataset.current
 				}
-			},
-			loadMore: function (e) {
-				let last = this.newsitems[e][this.newsitems[e].length - 1].label,
-					name = this.newsitems[e][this.newsitems[e].length - 1].name;
-				for (let i = 1; i <= 10; i++) {
-					this.newsitems[e].push({
-						name: name,
-						label: i + last
-					});
-				}
-			},
-			randomfn() {
-				let ary = [];
-				for (let i = 0, length = this.tabs.length; i < length; i++) {
-					let aryItem = [];
-					for (let j = 1; j <= 20; j++) {
-						aryItem.push({
-							name: this.tabs[i].name,
-							label: j
-						});
-					}
-					ary.push(aryItem);
-				}
-				return ary;
 			}
+
 		}
 	}
 </script>
@@ -191,6 +201,7 @@
 		line-height: 300px;
 		text-align: center;
 	}
+
 	.swiper-tab {
 		width: 100%;
 		white-space: nowrap;

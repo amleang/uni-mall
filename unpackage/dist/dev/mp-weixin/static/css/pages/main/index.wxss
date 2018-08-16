@@ -23,7 +23,7 @@ page {
   width: 100%;
   white-space: nowrap;
   line-height: 64rpx;
-  height: 64rpx;
+  height: 70rpx;
 }
 .swiper-tab-list {
   font-size: 30rpx;
@@ -50,4 +50,24 @@ page {
   line-height: 90rpx;
   text-align: left;
   border-bottom: 2rpx solid #EFEFF4;
+}
+.product-item {
+  display: flex;
+  flex-direction: column;
+  width: 345rpx;
+  float: left;
+  margin-bottom: 20rpx;
+  font-size: 26rpx;
+}
+.product-item .img {
+  width: 320rpx;
+  height: 320rpx;
+}
+.product-one {
+  padding-left: 20rpx;
+  padding-right: 10rpx;
+}
+.product-two {
+  padding-right: 20rpx;
+  padding-left: 10rpx;
 }

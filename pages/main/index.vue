@@ -1,43 +1,31 @@
 <template>
 	<view class="index">
-		<scroll-view id="tab-bar" class="swiper-tab" scroll-x :scroll-left="scrollLeft">
-			<block v-for="(tab,index) in tabs" :key="tab.id">
-				<view :class="['swiper-tab-list',currentTab==index ? 'on' : '']" :id="tab.id" :data-current="index" @tap="swichNav">{{tab.name}}</view>
-			</block>
-		</scroll-view>
-		<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" style="margin-top: 10px;">
-			<swiper-item>
-				<view class="swiper-item">
-					<image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="widthFix"></image>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">
-					<image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="widthFix"></image>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item">C</view>
-			</swiper-item>
-		</swiper>
-		<!-- <swiper :current="currentTab" class="swiper-box" duration="300" @change="bindChange">
-			<block v-for="(tab,index1) in newsitems" :key="index1">
+		<scroll-view class="index-bd" scroll-y>
+			<scroll-view id="tab-bar" class="swiper-tab" scroll-x :scroll-left="scrollLeft">
+				<block v-for="(tab,index) in tabs" :key="tab.id">
+					<view :class="['swiper-tab-list',currentTab==index ? 'on' : '']" :id="tab.id" :data-current="index" @tap="swichNav">{{tab.name}}</view>
+				</block>
+			</scroll-view>
+			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
 				<swiper-item>
-					<scroll-view class="index-bd" scroll-y @scrolltolower="loadMore(index1)">
-						<block v-for="(newsitem,index2) in tab" :key="index2">
-							<view class="tab-list">{{newsitem.name}}-{{newsitem.label}}</view>
-						</block>
-					</scroll-view>
+					<view class="swiper-item">
+						<image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="aspectFill" style="width:100%;height:300px;"></image>
+					</view>
 				</swiper-item>
-			</block>
-		</swiper> -->
+				<swiper-item>
+					<view class="swiper-item">
+						<image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="aspectFill" style="width:100%;height:300px;"></image>
+					</view>
+				</swiper-item>
+				<swiper-item>
+					<view class="swiper-item">C</view>
+				</swiper-item>
+			</swiper>
 
-		<view class="product-list">
-			<view v-for="(product,index) in productList" :key="index">
-				<product :image="product.image" :title="product.title" :originalPrice="product.originalPrice" :favourPrice="product.favourPrice"
-				    :tip="product.tip"></product>
+			<view class="product-list">
+				<product :productData="productList"></product>
 			</view>
-		</view>
+		</scroll-view>
 	</view>
 </template>
 <script>
@@ -206,7 +194,7 @@
 		width: 100%;
 		white-space: nowrap;
 		line-height: 64px;
-		height: 64px;
+		height: 70px;
 	}
 
 

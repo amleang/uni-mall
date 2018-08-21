@@ -41,12 +41,24 @@
 	}
 
 	.product-one {
-		padding-left: 20px;
-		padding-right: 10px;
+		margin-left: 20px;
+		margin-right: 10px;
+		background-color: #FFFFFF;
 	}
 
 	.product-two {
-		padding-right: 20px;
-		padding-left: 10px;
+		margin-right: 20px;
+		margin-left: 10px;
+		background-color: #FFFFFF;
+	}
+
+	.product-name {
+		height: 80px;
+		padding:0 10px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
 	}
 </style>

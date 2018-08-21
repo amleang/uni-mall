@@ -10,12 +10,12 @@
       <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{3000}}" duration="{{1000}}" class="_swiper data-v-4b34c1b8">
         <swiper-item class="_swiper-item data-v-4b34c1b8">
           <view class="_view data-v-4b34c1b8 swiper-item">
-            <image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="aspectFill" style="width:100%;height:300rpx;" class="_image data-v-4b34c1b8"></image>
+            <image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="aspectFill" style="width:100%;height:350rpx;" class="_image data-v-4b34c1b8"></image>
           </view>
         </swiper-item>
         <swiper-item class="_swiper-item data-v-4b34c1b8">
           <view class="_view data-v-4b34c1b8 swiper-item">
-            <image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="aspectFill" style="width:100%;height:300rpx;" class="_image data-v-4b34c1b8"></image>
+            <image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="aspectFill" style="width:100%;height:350rpx;" class="_image data-v-4b34c1b8"></image>
           </view>
         </swiper-item>
         <swiper-item class="_swiper-item data-v-4b34c1b8">

@@ -6,19 +6,19 @@
 					<view :class="['swiper-tab-list',currentTab==index ? 'on' : '']" :id="tab.id" :data-current="index" @tap="swichNav">{{tab.name}}</view>
 				</block>
 			</scroll-view>
-			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000">
-				<swiper-item>
-					<view class="swiper-item">
-						<image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="aspectFill" style="width:100%;height:300px;"></image>
+			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" >
+				<swiper-item >
+					<view class="swiper-item" >
+						<image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="aspectFill" style="width:100%;height:350px;"></image>
 					</view>
 				</swiper-item>
 				<swiper-item>
-					<view class="swiper-item">
-						<image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="aspectFill" style="width:100%;height:300px;"></image>
+					<view class="swiper-item" >
+						<image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="aspectFill" style="width:100%;height:350px;"></image>
 					</view>
 				</swiper-item>
 				<swiper-item>
-					<view class="swiper-item">C</view>
+					<view class="swiper-item" >C</view>
 				</swiper-item>
 			</swiper>
 
@@ -76,9 +76,10 @@
 			this.loadData();
 			uni.getSystemInfo({
 				success: function (res) {
-					uni.showToast({
-						title: "height=>" + res.windowHeight
-					})
+					
+// 					uni.showToast({
+// 						title: "height=>" + this.bannerHeight
+// 					})
 					console.log("res=>", res)
 				}
 			})
@@ -176,6 +177,7 @@
 		flex-direction: column;
 		overflow: hidden;
 		height: 100%;
+		background-color: #F2F2F2;
 	}
 
 	.index-bd {
@@ -185,8 +187,6 @@
 
 	.swiper-item {
 		display: block;
-		height: 300px;
-		line-height: 300px;
 		text-align: center;
 	}
 
@@ -195,6 +195,7 @@
 		white-space: nowrap;
 		line-height: 64px;
 		height: 70px;
+		background-color: #FFFFFF;
 	}
 
 
@@ -227,5 +228,9 @@
 		line-height: 90px;
 		text-align: left;
 		border-bottom: 2px solid #EFEFF4;
+	}
+
+	.product-list {
+		padding-top: 20px;
 	}
 </style>

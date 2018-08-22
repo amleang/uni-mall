@@ -6,19 +6,22 @@
 					<view :class="['swiper-tab-list',currentTab==index ? 'on' : '']" :id="tab.id" :data-current="index" @tap="swichNav">{{tab.name}}</view>
 				</block>
 			</scroll-view>
-			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" >
-				<swiper-item >
-					<view class="swiper-item" >
-						<image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="aspectFill" style="width:100%;height:350px;"></image>
+			<view class="search">
+				搜索
+			</view>
+			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" style="height:35%;">
+				<swiper-item>
+					<view class="swiper-item">
+						<image src="http://img.anlyzhao.com/3188799691524b4d99754b989ff075bb.jpg" mode="aspectFill" style="width:100%;height:100%;"></image>
 					</view>
 				</swiper-item>
 				<swiper-item>
-					<view class="swiper-item" >
-						<image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="aspectFill" style="width:100%;height:350px;"></image>
+					<view class="swiper-item">
+						<image src="http://img.anlyzhao.com/74f833d766ac445aaef60e6c5b9e0dfe.jpg" mode="aspectFill" style="width:100%;height:100%;"></image>
 					</view>
 				</swiper-item>
 				<swiper-item>
-					<view class="swiper-item" >C</view>
+					<view class="swiper-item">文本</view>
 				</swiper-item>
 			</swiper>
 
@@ -76,10 +79,10 @@
 			this.loadData();
 			uni.getSystemInfo({
 				success: function (res) {
-					
-// 					uni.showToast({
-// 						title: "height=>" + this.bannerHeight
-// 					})
+
+					// 					uni.showToast({
+					// 						title: "height=>" + this.bannerHeight
+					// 					})
 					console.log("res=>", res)
 				}
 			})
@@ -186,6 +189,7 @@
 	}
 
 	.swiper-item {
+		height: 100%;
 		display: block;
 		text-align: center;
 	}
@@ -193,7 +197,7 @@
 	.swiper-tab {
 		width: 100%;
 		white-space: nowrap;
-		line-height: 64px;
+		line-height: 62px;
 		height: 70px;
 		background-color: #FFFFFF;
 	}
@@ -204,6 +208,16 @@
 		width: 150px;
 		display: inline-block;
 		text-align: center;
+		color: #777777;
+	}
+
+	.search {
+		height: 60px;
+		line-height: 60px;
+		background-color: #fff;
+		text-align: center;
+		border: 1px solid #f0f0f0;
+		font-size: 28px;
 		color: #777777;
 	}
 

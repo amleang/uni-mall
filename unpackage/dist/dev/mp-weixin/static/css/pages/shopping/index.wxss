@@ -1,0 +1,17 @@
+
+page {
+  display: flex;
+}
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+  background-color: #F2F2F2;
+}
+.seller {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+}

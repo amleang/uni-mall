@@ -4,7 +4,7 @@ global.webpackJsonp([2],{
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("Object.defineProperty(exports, \"__esModule\", { value: true });\n\nvar _vue = __webpack_require__(1);var _vue2 = _interopRequireDefault(_vue);\nvar _index = __webpack_require__(4);var _index2 = _interopRequireDefault(_index);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;\nvar app = new _vue2.default(_index2.default);\napp.$mount();exports.default =\n\n{\n\tconfig: { \"navigationBarTitleText\": \"uni-app\" } };\n\n//////////////////\n// WEBPACK FOOTER\n// F:/Work/APP/uni-mall/pages/index/index.js\n// module id = 11\n// module chunks = 2\n\n//# sourceURL=uni-app:///pages/index/index.js?35cc");
+eval("Object.defineProperty(exports, \"__esModule\", { value: true });\n\nvar _vue = __webpack_require__(1);var _vue2 = _interopRequireDefault(_vue);\nvar _index = __webpack_require__(4);var _index2 = _interopRequireDefault(_index);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var uni = __webpack_require__(0).default;\nvar app = new _vue2.default(_index2.default);\napp.$mount();exports.default =\n\n{\n\tconfig: { \"navigationBarTitleText\": \"uni-mall\" } };\n\n//////////////////\n// WEBPACK FOOTER\n// F:/Work/APP/uni-mall/pages/index/index.js\n// module id = 11\n// module chunks = 2\n\n//# sourceURL=uni-app:///pages/index/index.js?35cc");
 
 /***/ }),
 

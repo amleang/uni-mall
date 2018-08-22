@@ -1,11 +1,12 @@
 {
   "pages": [
     "pages/main/index",
+    "pages/shopping/index",
     "pages/index/index"
   ],
   "window": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "uni-mall",
     "navigationBarBackgroundColor": "#0faeff",
     "backgroundColor": "#fbf9fe"
   },
@@ -22,7 +23,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/shopping/index",
         "iconPath": "static/tab_shop.png",
         "selectedIconPath": "static/tab_shop_active.png",
         "text": "购物车"
